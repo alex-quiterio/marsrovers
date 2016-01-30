@@ -2,20 +2,20 @@ class InstructionsCoordinator
 
  ORIENTATION_STATES = {
   [:N, :R] => :E,
-  [:N, :L] => :O,
-  [:S, :R] => :O,
+  [:N, :L] => :W,
+  [:S, :R] => :W,
   [:S, :L] => :E,
   [:E, :R] => :S,
   [:E, :L] => :N,
-  [:O, :R] => :N,
-  [:O, :L] => :S
+  [:W, :R] => :N,
+  [:W, :L] => :S
  }
 
  MOVE_COORDS = {
   :N => [:y, 1],
   :S => [:y, -1],
   :E => [:x, 1],
-  :O => [:x, -1]
+  :W => [:x, -1]
  }
 
  def move(obj, command)
