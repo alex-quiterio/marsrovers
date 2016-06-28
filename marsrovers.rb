@@ -37,7 +37,7 @@ x, y = file_reader.read_spaced_line
 plateau = Plateau.new(x.to_i, y.to_i)
 coordinator = InstructionsCoordinator.new
 
-while !file_reader.is_done?
+until file_reader.is_done?
  x, y, orientation = file_reader.read_spaced_line
  rover = create_rover(x.to_i, y.to_i, orientation)
  rover_moves = file_reader.read_line.map(&:intern)
