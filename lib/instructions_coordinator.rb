@@ -9,18 +9,18 @@ class InstructionsCoordinator
   [:E, :L] => :N,
   [:W, :R] => :N,
   [:W, :L] => :S
- }
+ }.freeze
 
  MOVE_COORDS = {
   :N => [:y, 1],
   :S => [:y, -1],
   :E => [:x, 1],
   :W => [:x, -1]
- }
+ }.freeze
 
  def move(obj, command)
   if is_forward_command?(command)
-   update_position(obj, command)
+   update_position(obj)
   else
    rotate(obj, command)
   end
@@ -32,7 +32,7 @@ class InstructionsCoordinator
   :M == command
  end
 
- def update_position(obj, command)
+ def update_position(obj)
   axis, multiplier = get_move_coordinates(obj.orientation)
   obj.position[axis] = obj.position[axis] + multiplier
  end
